@@ -30,6 +30,10 @@ useEffect(() => {
 dispatch(getData());
 }, []);
 const { data } = useSelector((state: rootState) => state.dataReducer);
+interface Data {
+    id: number;
+    title: string;
+  }
 interface HeadCell {
     disablePadding: boolean;
     id: keyof Data;
@@ -50,10 +54,6 @@ interface HeadCell {
       label: 'POSTS',
     },
   ];
-  interface Data {
-    id: number;
-    title: string;
-  }
   function createData(
     id: number,
     title: string,
