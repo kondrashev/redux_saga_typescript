@@ -23,48 +23,16 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import {Data, headCells, createData} from './MapperItems'
 
 export default function ListItems() {
 const dispatch = useDispatch();
 useEffect(() => {
-dispatch(getData());
+    dispatch(getData());
 }, []);
 const { data } = useSelector((state: rootState) => state.dataReducer);
-interface Data {
-    id: number;
-    title: string;
-  }
-interface HeadCell {
-    disablePadding: boolean;
-    id: keyof Data;
-    label: string;
-    numeric: boolean;
-  }
-  const headCells: readonly HeadCell[] = [
-    {
-      id: 'id',
-      numeric: false,
-      disablePadding: true,
-      label: 'ID_USER',
-    },
-    {
-      id: 'title',
-      numeric: true,
-      disablePadding: false,
-      label: 'POSTS',
-    },
-  ];
-  function createData(
-    id: number,
-    title: string,
-  ): Data {
-    return {
-      id,
-      title,
-    };
-  }
-const rows = data.map((item: {id: number, title: string})=>{
-    return createData(item.id, item.title);
+const rows = data.map((item: any) => {
+    return createData(item);
 });
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
