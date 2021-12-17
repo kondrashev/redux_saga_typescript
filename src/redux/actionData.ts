@@ -12,7 +12,11 @@ export const loadFetchDataSuccess = (payload: any) => {
 };
 
 export const loadFetchData = async () => {
-  const url: string = "https://jsonplaceholder.typicode.com/posts?_limit=15";
-  const response = await fetch(url);
-  return await response.json();
+  try {
+    const url: string = "https://jsonplaceholder.typicode.com/posts?_limit=15";
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
 };
