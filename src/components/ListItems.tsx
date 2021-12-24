@@ -152,7 +152,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Posts
         </Typography>
       )}
       {numSelected > 0 ? (

@@ -4,7 +4,7 @@ export const getData = () => {
   return { type: REQUEST_DATA };
 };
 
-export const loadFetchDataSuccess = (payload: any) => {
+export const loadFetchDataSuccess= <T>(payload: T) => {
   return {
     type: LOAD_DATA_SUCCESS,
     payload,

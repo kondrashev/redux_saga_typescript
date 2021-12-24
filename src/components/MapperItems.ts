@@ -36,7 +36,7 @@ export const headCells: readonly HeadCell[] = [
       label: 'POSTS',
     },
   ];
-export function createData({userId, id, title, body}: any): Data {
+export function createData<T extends Data>({userId, id, title, body}: T): Data {
     return {
         userId,
         id,
